@@ -29,7 +29,7 @@ class ViewController: UIViewController
     var v16 = ExampleView(frame: CGRectZero, name: "View 16")
     var v17 = ExampleView(frame: CGRectZero, name: "View 17")
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         self.scrollView = DSDynamicScrollView(frame: CGRectZero)
         super.init(coder: aDecoder)

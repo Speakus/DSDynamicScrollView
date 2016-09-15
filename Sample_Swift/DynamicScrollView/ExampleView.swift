@@ -18,7 +18,7 @@ class ExampleView: DSDynamicView
     init(frame: CGRect, name: String)
     {
         nameLabel = UILabel(frame: frame)
-        nameLabel.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        nameLabel.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         nameLabel.textAlignment = .Center
         nameLabel.text = name
         nameLabel.textColor = UIColor.whiteColor()
@@ -28,12 +28,19 @@ class ExampleView: DSDynamicView
         
         super.init(frame: frame)
         
-        var hue = CGFloat(Float(arc4random() % 256) / 256.0)
-        var saturation = CGFloat(Float(arc4random() % 128) / 256.0) + 0.5
-        var brightness = CGFloat(Float(arc4random() % 128) / 256.0) + 0.5
+        let hue = CGFloat(Float(arc4random() % 256) / 256.0)
+        let saturation = CGFloat(Float(arc4random() % 128) / 256.0) + 0.5
+        let brightness = CGFloat(Float(arc4random() % 128) / 256.0) + 0.5
         
-        self.backgroundColor = UIColor(hue: CGFloat(hue), saturation: CGFloat(saturation), brightness: CGFloat(brightness), alpha: 1)
+        self.backgroundColor = UIColor(hue: CGFloat(hue),
+                                       saturation: CGFloat(saturation),
+                                       brightness: CGFloat(brightness),
+                                       alpha: 1)
         self.addSubview(nameLabel)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func isEqual(object: AnyObject?) -> Bool
